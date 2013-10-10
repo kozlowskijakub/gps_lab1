@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class MainActivity extends Activity implements LocationListener {
 	public TextView speed;
 	public TextView poiDistance;
 	public TextView poiDirection;
+	public TextView poiNumber;
 	public static final Double Radius = 6371d;
 
 	Poi currentPoi;
@@ -41,6 +43,10 @@ public class MainActivity extends Activity implements LocationListener {
 		this.longitude = (TextView) findViewById(R.id.tv_longitude);
 		this.direction = (TextView) findViewById(R.id.tv_direction);
 		this.speed = (TextView) findViewById(R.id.tv_speed);
+		this.poiDirection = (TextView) findViewById(R.id.tv_poi_direction);
+		this.poiDistance = (TextView) findViewById(R.id.tv_poi_distance);
+		this.poiNumber = (TextView) findViewById(R.id.tv_points_number);
+		
 		currentPoi = new Poi();
 		listPoi = new ArrayList<Poi>();
 
@@ -60,12 +66,18 @@ public class MainActivity extends Activity implements LocationListener {
 	public void addPoi(View v) {
 		Poi poi = this.currentPoi.clone();
 		this.listPoi.add(poi);
+		this.poiNumber.setText(String.valueOf(this.clicks+1));
 
 		if (clicks > 0) {
-			this.poiDistance.setText(String.valueOf(countDistance(
-					this.currentPoi, listPoi.get(listPoi.size() - 2))));
+			try{
+				String distance = String.valueOf(countDistance(
+						this.currentPoi, listPoi.get(listPoi.size() - 2)));
+			this.poiDistance.setText(distance);
 			this.poiDirection.setText(String.valueOf(countBearing(
 					this.currentPoi, listPoi.get(listPoi.size() - 2))));
+			}catch(Exception e){
+				Log.e("parseException", e.toString());
+			}
 		}
 		clicks++;
 	}
@@ -77,7 +89,7 @@ public class MainActivity extends Activity implements LocationListener {
 				* Math.cos((poi1.longitude + poi2.longitude) / 2);
 		y = (poi1.lattitude - poi2.lattitude);
 		distance = Radius * Math.sqrt((x * x) + (y * y));
-		return distance;
+		return distance*1000;
 	}
 
 	public double countBearing(Poi poi1, Poi poi2) {
