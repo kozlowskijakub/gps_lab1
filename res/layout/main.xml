@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Longitude:" />
+
+        <TextView
+            android:id="@+id/tv_longitude"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="empty"   />
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lattitude:" />
+
+        <TextView
+            android:id="@+id/tv_lattitude"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="empty"  />
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Speed:" />
+
+        <TextView
+            android:id="@+id/tv_speed"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="empty"  />
+    </LinearLayout>
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Direction:" />
+
+        <TextView
+            android:id="@+id/tv_direction"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:text="empty" />
+    </LinearLayout>
+          <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_addPoint"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add point"
+            android:onClick="addPoi" />
+
+        <TextView
+            android:id="@+id/tv_points_number"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:text="points count" />
+    </LinearLayout>
+ <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Direction to poi:" />
+
+        <TextView
+            android:id="@+id/tv_poi_direction"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:text="empty" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Distance to poi:" />
+
+        <TextView
+            android:id="@+id/tv_poi_distance"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" 
+            android:text="empty" />
+    </LinearLayout>
+</LinearLayout>
